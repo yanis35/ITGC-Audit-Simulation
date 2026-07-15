@@ -14,13 +14,13 @@
 
 The IT General Controls (ITGC) baseline assessment of **MediTrust Health** identified **14 findings** across the four domains tested: **2 Critical, 5 High, 5 Medium, and 2 Low**. The overall control posture is assessed as **PARTIALLY EFFECTIVE**. While foundational controls exist in user authentication, backup monitoring, and change logging, significant deficiencies in termination access removal, emergency change management, and segregation of duties analysis require immediate management attention.
 
-This is MediTrust Health's **first formal ITGC audit**, and the results are consistent with expectations for an organisation of MediTrust's size, growth trajectory, and audit maturity. The findings do not indicate a systemic control failure, but they do reflect scaling gaps in identity governance, change control discipline, and system monitoring coverage that are common in high-growth technology companies preparing for their initial SOC 2 engagement.
+This is MediTrust Health's **first formal ITGC audit**, and the results are consistent with expectations for an organization of MediTrust's size, growth trajectory, and audit maturity. The findings do not indicate a systemic control failure, but they do reflect scaling gaps in identity governance, change control discipline, and system monitoring coverage that are common in high-growth technology companies preparing for their initial SOC 2 engagement.
 
 ---
 
 ## Key Strengths Identified
 
-- **Multi-Factor Authentication (MFA)**: MFA is enforced organisation-wide across all systems, including those processing PHI. No exceptions were identified in sampled login events.
+- **Multi-Factor Authentication (MFA)**: MFA is enforced organization-wide across all systems, including those processing PHI. No exceptions were identified in sampled login events.
 - **Backup Monitoring and Alerting**: Backup failure detection and alerting via Datadog is operating effectively. Three failures during the audit period were detected and resolved within SLA.
 - **Change Logging Infrastructure**: Jira Service Management provides a comprehensive change management platform with tracking, classification, and audit trail capabilities.
 - **Executive Commitment**: The executive team (CIO, CISO, VP Eng) has demonstrated strong support for the audit process and has proactively initiated remediation planning for critical and high-risk findings.
@@ -53,7 +53,7 @@ This is MediTrust Health's **first formal ITGC audit**, and the results are cons
 | Risk Domain | MediTrust Risk Appetite | Current Risk Exposure | Gap |
 |---|---|---|---|
 | **Access Management** | Low — no tolerance for unauthorized PHI access | **Moderate** — termination delays and provisioning gaps create exposure | Above appetite |
-| **Change Management** | Low — changes must be authorised and tested | **Moderate** — emergency change misuse and staging bypasses weaken control | Above appetite |
+| **Change Management** | Low — changes must be authorized and tested | **Moderate** — emergency change misuse and staging bypasses weaken control | Above appetite |
 | **Business Continuity** | Low — RTO of 4 hours for critical systems | **Low-to-Moderate** — most backups covered, but restoration test failed and uncovered resources exist | Slightly above appetite |
 | **Segregation of Duties** | Low — incompatible duties must be identified | **Moderate** — no automated analysis, stale matrix, missing monitoring | Above appetite |
 
@@ -62,7 +62,7 @@ This is MediTrust Health's **first formal ITGC audit**, and the results are cons
 ## Next Steps
 
 1. **Immediate (0–30 days)**: Remediate both **Critical** findings — implement automated offboarding orchestration (UAM-F-03) and emergency change controls (CM-F-02).
-2. **Short-term (30–90 days)**: Execute the **7 P2** remediation items covering privileged access key rotation, change documentation, SoD analysis, branch protection, backup coverage, provisioning controls, and staging bypass prevention.
+2. **Short-term (30–90 days)**: Execute the **7 P2** (High- and Medium-risk) remediation items covering privileged access key rotation, change documentation, SoD analysis, branch protection, backup coverage, provisioning controls, and staging bypass prevention.
 3. **Medium-term (90–180 days)**: Complete the remaining **5 P3** items including access recertification automation, restoration testing discipline, SoD monitoring, cross-region replication, and SoD matrix refresh.
 4. **Continuous**: Establish a quarterly ITGC monitoring cadence to track control health between audit cycles. Begin SOC 2 Type II readiness activities in parallel with remediation.
 5. **Risk Acceptance**: CIO to formally risk-accept any findings that cannot be remediated by the November 2026 deadline, with documented compensating controls and revised target dates. Audit Committee approval required for acceptances exceeding 90 days.

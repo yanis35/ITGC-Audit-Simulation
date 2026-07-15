@@ -47,8 +47,8 @@
 | **Risk Rating** | **Medium** |
 | **COBIT Reference** | DSS05.04 — Manage access identities and enable access |
 | **Description** | Two of 25 sampled users (8%) were provisioned with database read–write access that exceeded their approved role profile. Both instances were self-detected and corrected within 48 hours, but the provisioning process lacks automated entitlement validation against approved role templates. |
-| **Root Cause** | Provisioning workflow relies on manual entitlement selection by the IT support team without automated guardrails or role-based templates enforced at the point of request fulfilment. |
-| **Impact** | Users may receive excessive database permissions, increasing the risk of unauthorised PHI access, data exfiltration, or accidental modification of production data. |
+| **Root Cause** | Provisioning workflow relies on manual entitlement selection by the IT support team without automated guardrails or role-based templates enforced at the point of request fulfillment. |
+| **Impact** | Users may receive excessive database permissions, increasing the risk of unauthorized PHI access, data exfiltration, or accidental modification of production data. |
 | **Recommendation** | Implement role-based access templates in Okta and AWS IAM Identity Center; configure Jira Service Management to require role template selection rather than free-form entitlement entry; deploy a post-provisioning entitlement validation check within 24 hours. |
 
 ---
@@ -91,7 +91,7 @@
 | **Finding Title** | Privileged Access Key Rotation Not Enforced |
 | **Risk Rating** | **High** |
 | **COBIT Reference** | DSS06.03 — Manage roles, responsibilities, and access privileges |
-| **Description** | Two of 34 privileged IAM users had active access keys exceeding 180 days. The organisation does not enforce automated key rotation for IAM users with administrative privileges. While quarterly privileged access reviews are conducted, the review does not specifically verify key age or rotation compliance. |
+| **Description** | Two of 34 privileged IAM users had active access keys exceeding 180 days. The organization does not enforce automated key rotation for IAM users with administrative privileges. While quarterly privileged access reviews are conducted, the review does not specifically verify key age or rotation compliance. |
 | **Root Cause** | No automated access key rotation policy is configured in AWS IAM; privileged access review checklists do not include a key-age verification step. |
 | **Impact** | Long-lived access keys increase the window of exposure if a key is compromised. An attacker with a leaked privileged access key could gain persistent administrative access to AWS environments hosting PHI. |
 | **Recommendation** | Configure AWS IAM access key rotation policy (maximum 90 days) using IAM credential reports and AWS Config rules; update the privileged access review checklist to include key age verification; implement automated key expiry notifications. |
@@ -125,7 +125,7 @@
 | **Finding Title** | Emergency Change Process Gaps |
 | **Risk Rating** | **Critical** |
 | **COBIT Reference** | BAI06.03 — Manage emergency changes |
-| **Description** | One of seven emergency changes (JIRA-3055) had no documented post-implementation review (PIR). Further analysis revealed the change — a hotfix for a non-critical data display issue — did not meet the organisation's emergency change criteria and should have been classified as a standard change. This represents both a process compliance failure and a potential bypass of standard change controls. |
+| **Description** | One of seven emergency changes (JIRA-3055) had no documented post-implementation review (PIR). Further analysis revealed the change — a hotfix for a non-critical data display issue — did not meet the organization's emergency change criteria and should have been classified as a standard change. This represents both a process compliance failure and a potential bypass of standard change controls. |
 | **Root Cause** | The emergency change classification criteria are not enforced within Jira; any user can select "Emergency" without validation against defined criteria. No periodic review of emergency change appropriateness is performed. |
 | **Impact** | Non-urgent changes that bypass standard testing and approval gates increase the risk of production incidents, data corruption, and undetected configuration errors. Classification abuse erodes the integrity of the change management process. |
 | **Recommendation** | Implement a pre-submission validation gate in Jira that requires emergency change justification against defined criteria; perform a monthly retrospective review of all emergency changes for classification accuracy; provide refresher training on emergency change criteria to all change initiators. |

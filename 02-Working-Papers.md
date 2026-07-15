@@ -17,13 +17,13 @@
 | Attribute | Detail |
 |---|---|
 | **Procedure ID** | **UAM-01** |
-| **Control Objective** | New user accounts are provisioned only after authorised request and manager approval, with access rights consistent with job responsibilities. |
+| **Control Objective** | New user accounts are provisioned only after authorized request and manager approval, with access rights consistent with job responsibilities. |
 | **Risk Rating** | **Medium** |
 | **COBIT Reference** | DSS05.04 — Manage access identities and enable access |
 | **Test Steps** | 1. Select a sample of 25 users provisioned during the audit period from the HR onboarding log. 2. Trace each user to the corresponding access request ticket in Jira Service Management. 3. Verify manager approval was recorded. 4. Compare provisioned entitlements against the approved access profile. 5. Verify account creation timestamp falls after approval timestamp. |
 | **Expected Result** | 100% of sampled users have documented manager approval; entitlements match the approved profile; no accounts created prior to approval. |
 | **Actual Result** | 23 of 25 samples met all criteria. Two users (IDs 4421, 4489) were provisioned with elevated database read–write access that exceeded their approved role profile. Both instances were corrected within 48 hours. |
-| **Evidence Reference** | Jira tickets: ITSEC-3421, ITSEC-3422, ITSEC-3510… HR onboarding log Q1–Q2 2026 (HR-ON-2026.xlsx) |
+| **Evidence Reference** | Jira tickets: ITSEC-3421, ITSEC-3422, ITSEC-3510... HR onboarding log Q1–Q2 2026 (HR-ON-2026.xlsx) |
 | **Deficiency** | Yes — see finding **UAM-F-01** |
 
 ---
@@ -86,7 +86,7 @@
 | **COBIT Reference** | DSS05.05 — Manage logical access |
 | **Test Steps** | 1. Review Okta MFA policy configuration for all applications. 2. Verify that PHI-processing systems (Core Platform, AWS RDS, Datadog logs) require MFA. 3. Sample 30 user login events from Okta and confirm MFA challenge was enforced. 4. Identify any non-SSO authentication paths. |
 | **Expected Result** | MFA enforced for all PHI-adjacent systems; 100% of sampled logins required MFA challenge; no local authentication bypasses identified. |
-| **Actual Result** | MFA is enforced organisation-wide. All 30 sampled logins included MFA challenge. One legacy API gateway endpoint allowed token-based authentication without MFA for internal service accounts — this is documented and accepted. |
+| **Actual Result** | MFA is enforced organization-wide. All 30 sampled logins included MFA challenge. One legacy API gateway endpoint allowed token-based authentication without MFA for internal service accounts — this is documented and accepted. |
 | **Evidence Reference** | Okta MFA policy report; Okta system log (30 sampled events); API gateway configuration |
 | **Deficiency** | No — observation only |
 
@@ -99,7 +99,7 @@
 | Attribute | Detail |
 |---|---|
 | **Procedure ID** | **CM-01** |
-| **Control Objective** | All changes to the production environment are initiated through a standardised change request process with documented business justification. |
+| **Control Objective** | All changes to the production environment are initiated through a standardized change request process with documented business justification. |
 | **Risk Rating** | **High** |
 | **COBIT Reference** | BAI06.01 — Manage changes — change standards and procedures |
 | **Test Steps** | 1. Obtain the change log from Jira Service Management for the audit period (all production changes). 2. Select a sample of 30 standard changes. 3. Verify each change has a unique ticket ID, description, business justification, and risk classification. 4. Confirm classification (Standard / Normal / Emergency) is documented. 5. Verify all required fields are populated. |

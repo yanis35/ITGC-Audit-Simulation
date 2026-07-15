@@ -9,7 +9,7 @@
 
 ## Scenario Overview
 
-MediTrust Health is a B2B SaaS digital health platform (300 employees) that processes protected health information (PHI) for 15+ hospital networks across the United States. The organisation is preparing for its **first formal SOC 2 Type II audit** and has engaged an internal audit team to conduct a baseline IT General Controls (ITGC) assessment. This simulation captures the end-to-end audit lifecycle — from planning through reporting and remediation — using **COBIT 2019** as the governing control framework.
+MediTrust Health is a B2B SaaS digital health platform (300 employees) that processes protected health information (PHI) for 15+ hospital networks across the United States. The organization is preparing for its **first formal SOC 2 Type II audit** and has engaged an internal audit team to conduct a baseline IT General Controls (ITGC) assessment. This simulation captures the end-to-end audit lifecycle — from planning through reporting and remediation — using **COBIT 2019** as the governing control framework.
 
 ## Audit Scope
 

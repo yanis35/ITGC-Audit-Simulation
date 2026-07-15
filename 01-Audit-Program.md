@@ -60,8 +60,8 @@ MediTrust Health operates a B2B SaaS platform that ingests, stores, and processe
 | Risk Factor | Rating | Rationale |
 |---|---|---|
 | Regulatory Complexity | **High** | HIPAA + SOC 2 convergence; first-time audit |
-| IT Environment Complexity | **High** | Multi-region cloud, containerised workloads, IaC |
-| Organisational Change | **Medium** | Rapid engineering hiring; no IAM-dedicated resource |
+| IT Environment Complexity | **High** | Multi-region cloud, containerized workloads, IaC |
+| Organizational Change | **Medium** | Rapid engineering hiring; no IAM-dedicated resource |
 | Prior Audit History | **High** | No formal ITGC audit ever performed |
 | Third-Party Dependence | **Medium** | AWS as critical subcontractor; SOC 2 reports obtained |
 
@@ -86,7 +86,7 @@ The following COBIT 2019 governance and management objectives were selected as t
 | COBIT ID | Management Practice | Control Focus |
 |---|---|---|
 | **BAI06.01** | Manage changes — change standards and procedures | Change request process |
-| **BAI06.02** | Assess, prioritise, and authorise changes | Change approval workflow |
+| **BAI06.02** | Assess, prioritize, and authorize changes | Change approval workflow |
 | **BAI06.03** | Manage emergency changes | Emergency change process |
 | **BAI03.01** | Manage the identification and build of solutions | Testing & QA before production deployment |
 
@@ -107,6 +107,8 @@ The following COBIT 2019 governance and management objectives were selected as t
 | **APO07.05** | Define and communicate roles and responsibilities | Role-based access design |
 | **MEA03.01** | Monitor compliance with internal policies | Access violation monitoring |
 | **DSS06.04** | Manage security breaches and incidents | Mitigating controls for SoD conflicts |
+
+> **Note on untested COBIT objectives:** BAI06.02 (Change approval workflow) and DSS06.04 (SoD conflict mitigating controls) were evaluated through process walkthroughs and are documented separately in the working papers. DSS04.02 (Automated backup execution) is covered by test procedures BR-01 through BR-04.
 
 ---
 

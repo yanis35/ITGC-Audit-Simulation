@@ -16,7 +16,7 @@
 | Priority | Count | Definition |
 |---|---|---|
 | **P1 — Immediate (0–30 days)** | 2 | Critical-risk findings requiring immediate remediation |
-| **P2 — Short-term (30–90 days)** | 7 | High-risk findings requiring remediation within the quarter |
+| **P2 — Short-term (30–90 days)** | 7 | High- and Medium-risk findings requiring remediation within the quarter |
 | **P3 — Medium-term (90–180 days)** | 5 | Medium- and Low-risk findings requiring remediation before audit close |
 | **Total** | **14** | — |
 
