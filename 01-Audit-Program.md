@@ -1,5 +1,7 @@
 # Audit Planning Document — ITGC Baseline Assessment
 
+**Classification: CONFIDENTIAL — Audit Work Product — Privileged and Confidential**
+
 | Field | Value |
 |---|---|
 | **Document ID** | AP-MT-2026-001 |
@@ -27,6 +29,8 @@ To assess the design and operating effectiveness of MediTrust Health's IT Genera
 | **Audit Period** | January 1, 2026 – June 30, 2026 |
 | **Control Framework** | COBIT 2019 (Governance and Management Objectives) |
 
+> **Note:** External SOC 2 auditor (Deloitte & Touche LLP) was not involved in this internal audit phase. Findings will be made available during the external assessment.
+
 ### Timeline
 
 | Phase | Start | End | Deliverable |
@@ -51,7 +55,7 @@ MediTrust Health operates a B2B SaaS platform that ingests, stores, and processe
 
 - **Regulatory Exposure**: HIPAA Omnibus Rule (45 CFR § 164.308–312) and state breach notification laws impose strict requirements on PHI access controls, audit logging, and breach response.
 - **SOC 2 Readiness**: First formal audit — no prior ITGC baseline exists. Control gaps are expected and tolerable only with documented remediation.
-- **Scale Velocity**: Engineering team doubled in the past 12 months (40 to 85 engineers); access provisioning and termination processes have not scaled proportionally.
+- **Rapid Organizational Scaling**: Engineering team doubled in the past 12 months (40 to 85 engineers); access provisioning and termination processes have not scaled proportionally.
 - **Cloud Complexity**: Multi-region AWS deployment with dynamic infrastructure; change management and backup recovery processes span ephemeral resources.
 - **Remote Workforce**: 100% remote engineering team increases reliance on SSO, device trust, and identity governance.
 
@@ -77,7 +81,7 @@ The following COBIT 2019 governance and management objectives were selected as t
 |---|---|---|
 | **DSS05.04** | Manage access identities and enable access | User provisioning and de-provisioning |
 | **DSS05.05** | Manage logical access | Authentication controls (MFA, SSO) |
-| **APO13.01** | Establish and maintain an ISMS | Access recertification process |
+| **MEA03.01** | Monitor compliance with internal policies | Access recertification process |
 | **DSS06.03** | Manage roles, responsibilities, and access privileges | Privileged access management |
 | **APO07.06** | Manage employee changes | Termination access removal |
 
@@ -88,7 +92,7 @@ The following COBIT 2019 governance and management objectives were selected as t
 | **BAI06.01** | Manage changes — change standards and procedures | Change request process |
 | **BAI06.02** | Assess, prioritize, and authorize changes | Change approval workflow |
 | **BAI06.03** | Manage emergency changes | Emergency change process |
-| **BAI03.01** | Manage the identification and build of solutions | Testing & QA before production deployment |
+| **BAI07.01** | Manage changes — acceptance and transitioning | Testing & QA before production deployment |
 
 ### Domain 3: Backup and Recovery
 
@@ -106,9 +110,9 @@ The following COBIT 2019 governance and management objectives were selected as t
 | **DSS06.02** | Segregation of duties | SoD matrix and incompatible combinations |
 | **APO07.05** | Define and communicate roles and responsibilities | Role-based access design |
 | **MEA03.01** | Monitor compliance with internal policies | Access violation monitoring |
-| **DSS06.04** | Manage security breaches and incidents | Mitigating controls for SoD conflicts |
+| **—** | Evaluated under SOD-01/02 | Mitigating controls for SoD conflicts |
 
-> **Note on untested COBIT objectives:** BAI06.02 (Change approval workflow) and DSS06.04 (SoD conflict mitigating controls) were evaluated through process walkthroughs and are documented separately in the working papers. DSS04.02 (Automated backup execution) is covered by test procedures BR-01 through BR-04.
+> **Note on COBIT objectives covered by alternative procedures:** BAI06.02 (Change approval workflow) and DSS06.04 (SoD conflict mitigating controls) were evaluated through process walkthroughs and are documented separately in the working papers. DSS04.02 (Automated backup execution) is covered by test procedures BR-01 through BR-04.
 
 ---
 
@@ -131,8 +135,16 @@ The following COBIT 2019 governance and management objectives were selected as t
 | Engagement Partner / Audit Lead | Michael Torres, CIA | 120 |
 | IT Audit Senior | Priya Nair, CISA | 180 |
 | IT Audit Staff | David Kim | 240 |
-| Subject Matter Expert (Security) | James Okonkwo, CISO (advisory) | 20 |
+| Subject Matter Expert (Security) | James Okonkwo, CISO (Audit Liaison) | 20 |
 | Subject Matter Expert (Engineering) | Sarah Chen, VP Eng (advisory) | 15 |
-| Data Analytics Support | Ravi Patel, Data Engineer | 30 |
+| Data Analytics Support | Ravi Patel, Data Engineer (SRE) | 30 |
 
 **Total Estimated Effort**: 605 hours
+
+---
+
+## Document Control
+
+| Version | Date | Author | Status |
+|---|---|---|---|
+| 1.0 | July 15, 2026 | Internal Audit Team | Final |

@@ -1,5 +1,7 @@
 # Executive Summary — ITGC Baseline Audit
 
+**Classification: CONFIDENTIAL — Audit Work Product — Privileged and Confidential**
+
 | Field | Value |
 |---|---|
 | **Document ID** | ES-MT-2026-005 |
@@ -20,9 +22,9 @@ This is MediTrust Health's **first formal ITGC audit**, and the results are cons
 
 ## Key Strengths Identified
 
-- **Multi-Factor Authentication (MFA)**: MFA is enforced organization-wide across all systems, including those processing PHI. No exceptions were identified in sampled login events.
+- **Multi-Factor Authentication (MFA)**: MFA is enforced organization-wide across all systems, including those processing PHI. One legacy API gateway endpoint was identified that allows token-based authentication without MFA for internal service accounts. This exception has been documented and accepted by management pending a scheduled migration. (2 findings in identity management scope identified - see UAM findings)
 - **Backup Monitoring and Alerting**: Backup failure detection and alerting via Datadog is operating effectively. Three failures during the audit period were detected and resolved within SLA.
-- **Change Logging Infrastructure**: Jira Service Management provides a comprehensive change management platform with tracking, classification, and audit trail capabilities.
+- **Change Logging Infrastructure**: Jira Service Management provides a comprehensive change management platform with tracking, classification, and audit trail capabilities. (gaps in mandatory field enforcement and change classification identified - see CM findings)
 - **Executive Commitment**: The executive team (CIO, CISO, VP Eng) has demonstrated strong support for the audit process and has proactively initiated remediation planning for critical and high-risk findings.
 
 ---
@@ -67,6 +69,16 @@ This is MediTrust Health's **first formal ITGC audit**, and the results are cons
 4. **Continuous**: Establish a quarterly ITGC monitoring cadence to track control health between audit cycles. Begin SOC 2 Type II readiness activities in parallel with remediation.
 5. **Risk Acceptance**: CIO to formally risk-accept any findings that cannot be remediated by the November 2026 deadline, with documented compensating controls and revised target dates. Audit Committee approval required for acceptances exceeding 90 days.
 
+The Board is requested to: (1) Approve the Corrective Action Plan, (2) Allocate budget for SoD tooling and Okta licensing upgrades, (3) Accept residual risk for findings with extended remediation timelines beyond 180 days.
+
 ---
 
 *This executive summary is based on audit work performed between January 1, 2026 and June 30, 2026. The findings and recommendations reflect the control environment as observed during that period. COBIT 2019 was used as the governing control framework. This audit was conducted in accordance with the International Standards for the Professional Practice of Internal Auditing (IIA Standards).*
+
+---
+
+## Document Control
+
+| Version | Date | Author | Status |
+|---|---|---|---|
+| 1.0 | July 15, 2026 | Internal Audit Team | Final |

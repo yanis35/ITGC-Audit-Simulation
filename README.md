@@ -1,5 +1,7 @@
 # IT General Controls Audit Simulation — MediTrust Health
 
+**Classification: CONFIDENTIAL — Audit Work Product — Privileged and Confidential**
+
 ![Status](https://img.shields.io/badge/Status-Simulation%20Complete-blue)
 ![Framework](https://img.shields.io/badge/Framework-COBIT%202019-green)
 ![Domain](https://img.shields.io/badge/Domain-ITGC-darkblue)
@@ -55,6 +57,10 @@ The audit followed a structured four-phase approach aligned with COBIT 2019:
 
 Control objectives were mapped to COBIT 2019 management practices under the **APO**, **BAI**, **DSS**, and **MEA** domains.
 
+## How to Use This Simulation
+
+These materials simulate a real ITGC audit engagement. Recommended reading order: 01 (Audit Program) → 02 (Working Papers) → 03 (Findings Register) → 04 (Corrective Action Plan) → 05 (Executive Summary).
+
 ## Repository Structure
 
 | File | Description |
@@ -79,3 +85,11 @@ Control objectives were mapped to COBIT 2019 management practices under the **AP
 ---
 
 *This simulation is for educational and professional development purposes. MediTrust Health is a fictional entity. COBIT is a registered trademark of ISACA.*
+
+---
+
+## Document Control
+
+| Version | Date | Author | Status |
+|---|---|---|---|
+| 1.0 | July 15, 2026 | Internal Audit Team | Final |

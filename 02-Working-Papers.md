@@ -1,5 +1,7 @@
 # Working Papers — ITGC Test Scripts and Evidence
 
+**Classification: CONFIDENTIAL — Audit Work Product — Privileged and Confidential**
+
 | Field | Value |
 |---|---|
 | **Document ID** | WP-MT-2026-002 |
@@ -202,7 +204,7 @@
 | **COBIT Reference** | DSS04.01 — Define backup and recovery requirements |
 | **Test Steps** | 1. Review the backup architecture documentation. 2. Verify AWS Backup cross-region copy settings. 3. Confirm that secondary region (us-west-2) backup vaults contain copies of primary region (us-east-1) backups. 4. Check cross-region replication schedule and encryption status. |
 | **Expected Result** | Cross-region backup copies enabled for all critical PHI datasets; replication completes within 24 hours; encryption at rest enabled in secondary region. |
-| **Actual Result** | Cross-region replication is configured for RDS and S3 backups. However, DynamoDB point-in-time recovery backups are not replicated across regions. The secondary region vault uses the same KMS key as the primary, creating a single-point-of-failure risk if the key is compromised in the primary region. |
+| **Actual Result** | Cross-region replication is configured for RDS and S3 backups. However, DynamoDB point-in-time recovery backups are not replicated across regions. The secondary region vault uses the same KMS key as the primary, creating a single point of failure if the key is compromised in the primary region. |
 | **Evidence Reference** | AWS Backup cross-region replication configuration; KMS key policy; DynamoDB backup settings |
 | **Deficiency** | Yes — see finding **BR-F-03** |
 
@@ -221,8 +223,6 @@
 | **Actual Result** | Backups are monitored via Datadog with alerts for job failures. In the sampled 30-day period, three backup failures occurred (two due to AWS service limits, one due to an expired IAM key). All three triggered alerts and were resolved within SLA. No missed backups were identified. |
 | **Evidence Reference** | Datadog backup monitoring dashboard; alert history (March–April 2026); incident tickets ITSEC-3890, ITSEC-3921, ITSEC-3988 |
 | **Deficiency** | No — control is operating effectively |
-
----
 
 ## Domain 4: Segregation of Duties (SoD)
 
@@ -271,3 +271,11 @@
 | **Actual Result** | Datadog Security Monitoring is configured for access violation detection. All 15 sampled alerts were triaged within SLA. However, detection rules focus on infrastructure-level violations (e.g., S3 public access) and do not include SoD-specific patterns (e.g., a single user performing privileged actions across multiple systems). |
 | **Evidence Reference** | Datadog Security Monitoring rules; 15 sampled incident tickets; SIEM configuration review |
 | **Deficiency** | Yes — see finding **SOD-F-03** |
+
+---
+
+## Document Control
+
+| Version | Date | Author | Status |
+|---|---|---|---|
+| 1.0 | July 15, 2026 | Internal Audit Team | Final |

@@ -1,5 +1,7 @@
 # Findings Register — Risk-Rated ITGC Deficiencies
 
+**Classification: CONFIDENTIAL — Audit Work Product — Privileged and Confidential**
+
 | Field | Value |
 |---|---|
 | **Document ID** | FR-MT-2026-003 |
@@ -78,7 +80,7 @@
 | **COBIT Reference** | APO07.06 — Manage employee changes |
 | **Description** | Three of 18 terminated employees (16.7%) experienced account deactivation delays exceeding the 24-hour SLA. One GitHub account remained active for 9 days post-termination, one Okta group membership was not removed for 4 days, and one Slack account remained active for 36 hours. No formal escalation or alert was triggered for any of the delayed deactivations. |
 | **Root Cause** | Termination offboarding procedures are executed manually across multiple systems (Okta, AWS, GitHub, Slack, Jira) with no centralized orchestration or automated cross-system deactivation workflow. No monitoring alert exists for missed or delayed deactivations. |
-| **Impact** | Former employees retain access to PHI-processing systems, source code repositories, and internal communication platforms, creating a material risk of data breach, IP theft, or HIPAA violation. |
+| **Impact** | Former employees retain access to PHI-processing systems, source code repositories, and internal communication platforms, creating a material risk of data breach, IP theft, or regulatory non-compliance under HIPAA. |
 | **Recommendation** | Implement an automated offboarding orchestration workflow via Okta Lifecycle Management or a SCIM-based integration to deprovision accounts across all systems upon HRIS termination trigger; deploy a daily reconciliation report comparing active employees against active system accounts; set up real-time alerting for any deactivation exceeding 4 hours. |
 
 ---
@@ -190,7 +192,7 @@
 | **Risk Rating** | **Medium** |
 | **COBIT Reference** | DSS04.03 — Test backup and recovery |
 | **Description** | The Q2 2026 restoration test failed due to a misconfigured IAM role in the disaster recovery account. The restoration was eventually completed using an alternate method after 7 hours (exceeding the 4-hour RTO). The failure was documented in an incident ticket, but no root cause analysis (RCA) was performed to prevent recurrence. |
-| **Root Cause** | The IAM role assumed during restoration testing had a stale trust policy that did not include the DR account's current AWS Organization ID. The DR environment is not subject to the same configuration management controls as the production environment. There is no policy requiring RCA for failed restoration tests. |
+| **Root Cause** | The IAM role assumed during restoration testing had an outdated trust policy that did not include the DR account's current AWS Organization ID. The DR environment is not subject to the same configuration management controls as the production environment. There is no policy requiring RCA for failed restoration tests. |
 | **Impact** | A restoration test failure without RCA means the underlying configuration issue remained unresolved, potentially affecting a real recovery scenario. The 7-hour recovery time exceeded RTO by 75%, which could result in extended downtime and SLA penalties during an actual disaster. |
 | **Recommendation** | Perform a root cause analysis for the Q2 restoration test failure and remediate the IAM role configuration; implement a policy requiring RCA for all failed restoration tests within 5 business days; align DR account configuration management with production standards. |
 
@@ -204,7 +206,7 @@
 | **Finding Title** | Cross-Region Replication Gaps for DynamoDB Backups |
 | **Risk Rating** | **Low** |
 | **COBIT Reference** | DSS04.01 — Define backup and recovery requirements |
-| **Description** | DynamoDB point-in-time recovery (PITR) backups are not replicated across AWS regions. Additionally, the secondary region backup vault uses the same KMS key as the primary region, creating a single-point-of-failure risk — if the primary region KMS key is compromised, the secondary region backups become inaccessible. |
+| **Description** | DynamoDB point-in-time recovery (PITR) backups are not replicated across AWS regions. Additionally, the secondary region backup vault uses the same KMS key as the primary region, creating a single point of failure — if the primary region KMS key is compromised, the secondary region backups become inaccessible. |
 | **Root Cause** | The backup architecture design did not account for DynamoDB PITR cross-region replication requirements. The KMS key strategy was designed for simplicity rather than resilience. |
 | **Impact** | In a regional disaster affecting us-east-1, DynamoDB data could only be recovered from PITR in the primary region. If the KMS key is compromised in the primary region, secondary region backups would be unrecoverable. |
 | **Recommendation** | Configure AWS Backup cross-region copy for DynamoDB tables; implement a separate KMS key for the secondary region with a cross-region key policy; document the risk acceptance if remediation is deferred. |
@@ -223,10 +225,10 @@
 | **Finding Title** | SoD Matrix Outdated |
 | **Risk Rating** | **Low** |
 | **COBIT Reference** | DSS06.02 — Segregation of duties |
-| **Description** | The SoD matrix has not been updated since November 2024 (18 months stale). It does not cover recently adopted platforms (Datadog, PagerDuty). Two incompatible combinations identified during the audit (GitHub admin + Jira admin, AWS network admin + security group manager) are not documented in the matrix. |
+| **Description** | The SoD matrix has not been updated since November 2024 (18 months overdue for review). It does not cover recently adopted platforms (Datadog, PagerDuty). Two incompatible combinations identified during the audit (GitHub admin + Jira admin, AWS network admin + security group manager) are not documented in the matrix. |
 | **Root Cause** | No owner or recurring schedule is assigned for SoD matrix maintenance. The matrix was created as a one-time exercise and was not refreshed when new systems were onboarded. |
 | **Impact** | An incomplete SoD matrix means incompatible role combinations can go undetected until a violation occurs. Users may hold roles in new platforms that conflict with existing platform roles without any compensating control review. |
-| **Recommendation** | Assign ownership for SoD matrix maintenance to the IAM team; establish a semi-annual review cycle; expand the matrix to cover Datadog, PagerDuty, and any other systems onboarded since the last update. |
+| **Recommendation** | Assign ownership for SoD matrix maintenance to the IAM team; establish a semi-annual review cycle (tightening from current annual review requirement given organizational growth trajectory); expand the matrix to cover Datadog, PagerDuty, and any other systems onboarded since the last update. |
 
 ---
 
@@ -257,3 +259,11 @@
 | **Root Cause** | The SIEM implementation prioritized infrastructure-level threat detection over identity-level SoD monitoring. The security team's monitoring playbook does not include SoD-specific use cases. |
 | **Impact** | SoD violations that manifest as cross-system administrative actions may go undetected by automated monitoring, requiring manual investigation to identify. This increases dwell time for potential insider threats or privilege abuse scenarios. |
 | **Recommendation** | Develop and deploy SoD-specific detection rules in Datadog (e.g., alerts for any user who performs an action in two or more systems within a defined time window where those systems represent incompatible combinations); include SoD monitoring scenarios in the security monitoring playbook; conduct a quarterly rule-effectiveness review. |
+
+---
+
+## Document Control
+
+| Version | Date | Author | Status |
+|---|---|---|---|
+| 1.0 | July 15, 2026 | Internal Audit Team | Final |
